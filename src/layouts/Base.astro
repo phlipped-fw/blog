@@ -1,6 +1,6 @@
 ---
 interface Props { title: string; description?: string; }
-const { title, description = "n0t.space blog — Flipper Diaries & Attack→Defense" } = Astro.props;
+const { title, description = "n0t.space blog: Flipper Diaries and Attack→Defense" } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -12,15 +12,15 @@ const { title, description = "n0t.space blog — Flipper Diaries & Attack→Defe
   </head>
   <body>
     <header>
-      <a href="/" class="logo">n0t.space</a>
+      <a href="https://n0t.space" class="logo">n0t.space</a>
       <nav>
-        <a href="/blog/">blog</a>
-        <a href="/blog/series/flipper-diaries/">Flipper Diaries</a>
-        <a href="/blog/series/attack-defense/">Attack→Defense</a>
+        <a href="/">blog</a>
+        <a href="/series/flipper-diaries/">Flipper Diaries</a>
+        <a href="/series/attack-defense/">Attack→Defense</a>
       </nav>
     </header>
     <main><slot /></main>
-    <footer><p>_AstroN0T · <a href="/">n0t.space</a></p></footer>
+    <footer><p>_AstroN0T · <a href="https://n0t.space">n0t.space</a></p></footer>
     <style is:global>
       :root { color-scheme: dark; --fg:#e6e6e6; --bg:#0a0a0a; --accent:#5eead4; }
       body { margin:0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background:var(--bg); color:var(--fg); line-height:1.65; }

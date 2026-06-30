@@ -1,17 +1,17 @@
-# n0t.space blog
+# blog.n0t.space
 
-Astro blog mounted at `n0t.space/blog/`. Separate repo from the main site so post cadence doesn't pollute the site repo's git history.
+Astro blog served at `blog.n0t.space`. Separate repo from the main site so post cadence doesn't pollute the site repo's git history.
 
 ## Develop
 
 ```bash
 npm install
-npm run dev   # http://localhost:4323/blog/
+npm run dev   # http://localhost:4323/
 ```
 
 ## Deploy
 
-Builds with `base: '/blog'`, so the `dist/` output is mounted at `n0t.space/blog/` via reverse proxy / rewrite at the edge (Cloudflare Pages, Vercel, Netlify).
+Cloudflare Pages, custom domain `blog.n0t.space`. Build command `npm run build`, output `dist`.
 
 ## Authoring
 

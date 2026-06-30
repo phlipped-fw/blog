@@ -25,7 +25,7 @@ const labels: Record<string, string> = {
   {posts.length === 0 && <p class="meta">No posts in this series yet.</p>}
   {posts.map(p => (
     <article>
-      <h2><a href={`/blog/${p.id}/`}>{p.data.title}</a></h2>
+      <h2><a href={`/${p.id}/`}>{p.data.title}</a></h2>
       <p class="meta">{p.data.pubDate.toISOString().slice(0,10)}</p>
       {p.data.description && <p>{p.data.description}</p>}
     </article>
