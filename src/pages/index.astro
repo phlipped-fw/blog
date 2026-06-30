@@ -9,7 +9,7 @@ const posts = (await getCollection('posts', ({ data }) => !data.draft))
   <h1>blog</h1>
   <p>Lab notebook. Series: <a href="/series/flipper-diaries/">Flipper Diaries</a>, <a href="/series/attack-defense/">Attack→Defense</a>.</p>
 
-  {posts.length === 0 && <p class="meta">No posts yet — coming soon.</p>}
+  {posts.length === 0 && <p class="meta">No posts yet - coming soon.</p>}
 
   {posts.map(p => (
     <article>
