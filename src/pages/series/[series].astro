@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  return [
+    { params: { series: 'flipper-diaries' } },
+    { params: { series: 'attack-defense' } },
+    { params: { series: 'misc' } },
+  ];
+}
+
+const { series } = Astro.params;
+const posts = (await getCollection('posts', ({ data }) => !data.draft && data.series === series))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const labels: Record<string, string> = {
+  'flipper-diaries': 'Flipper Diaries',
+  'attack-defense': 'Attack → Defense',
+  'misc': 'Misc',
+};
+---
+<Base title={`${labels[series!]} · n0t.space blog`}>
+  <h1>{labels[series!]}</h1>
+  {posts.length === 0 && <p class="meta">No posts in this series yet.</p>}
+  {posts.map(p => (
+    <article>
+      <h2><a href={`/blog/${p.id}/`}>{p.data.title}</a></h2>
+      <p class="meta">{p.data.pubDate.toISOString().slice(0,10)}</p>
+      {p.data.description && <p>{p.data.description}</p>}
+    </article>
+  ))}
+</Base>
